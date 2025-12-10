@@ -1,0 +1,56 @@
+name: "Update Process Documentation"
+description: "Request to update the project 'Rulebook' (docs/)."
+title: "[Doc Update]: "
+labels: ["documentation", "process improvement"]
+body:
+  - type: dropdown
+    id: process_doc
+    attributes:
+      label: "Which document needs an update?"
+      description: "Select the file from docs/ to act upon."
+      options:
+        - project-management-overview.md
+        - project-initiation.md
+        - project-planning.md
+        - execution-and-tracking.md
+        - risks-and-communication.md
+        - release-and-deployment.md
+        - retrospective-and-continuous-improvement.md
+        - roles-and-personas.md
+        - <new document>
+    validations:
+      required: true
+
+  - type: textarea
+    id: content_summary
+    attributes:
+      label: "What needs changing?"
+      description: "Describe the new rule, checklist item, or workflow step."
+      placeholder: "E.g., Add a step to the deployment checklist about database migrations."
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: "Context (Why?)"
+      description: "Help Future Me understand why we added this rule."
+      placeholder: "E.g., I forgot this step twice and broke production, so now it's a rule."
+    validations:
+      required: true
+
+  - type: textarea
+    id: example_content
+    attributes:
+      label: "Draft Content (Optional)"
+      description: "Paste the proposed text or checklist here to help the Copilot Agent."
+      placeholder: "- [ ] Run database migration script"
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: "Self-Check"
+      description: "Confirm the following:"
+      options:
+        - label: "This change simplifies my workflow or prevents a specific error."
+        - label: "I have removed outdated info (if applicable)."
